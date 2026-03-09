@@ -1,3 +1,3 @@
 # Recipe Book Website School Project
 
-Extract zip into htdocs folder. Import kuharska-knjiga.sql into PhpMyAdmin (50 slovenian recipes).
+Extract zip into htdocs folder. Import kuharska_knjiga.sql into PhpMyAdmin (50 template slovenian recipes).
