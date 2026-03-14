@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/image_helper.php';
 
 // accept either ?id=X or ?slug=X
 if (isset($_GET['slug'])) {
@@ -63,10 +64,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       foreach ($lines as $line) $stmt->execute([$id, $line, $i++]);
     }
 
+    // handle image
+    if (!empty($_POST['remove_image'])) {
+      deleteRecipeImage($recipe['slug']);
+    }
+    saveRecipeImage($recipe['slug']);
+
     header('Location: index.php?saved=1');
     exit;
   }
 }
 
 $pageTitle = 'Uredi recept';
+$recipeSlug = $recipe['slug'];
 require '_form.php';

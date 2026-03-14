@@ -31,7 +31,7 @@
 						</svg>
 					</a>
 				</p>
-				<p id="editLink"><a id="editAnchor" href="#">&#9998; Uredi</a></p>
+				<p id="pdfLink"><a href="#" onclick="window.print(); return false;">🡻 Prenos PDF</a></p>
 			</div>
 
 			<section id="heroimage"></section>
@@ -68,14 +68,18 @@
 		  const slug = window.location.hash.replace('#', '');
 		  if (!slug) { window.location.href = 'index.php'; return; }
 
-		  // set edit link
-		  document.getElementById('editAnchor').href = 'admin/edit.php?slug=' + encodeURIComponent(slug);
-
-		  // hero image
+		  // hero image – try jpg, png, webp
 		  if (lookForHeroImage) {
-		    const img = new Image();
-		    img.src = 'images/' + slug + '.jpg';
-		    img.onload = () => document.getElementById('heroimage').appendChild(img);
+		    const exts = ['jpg','png','webp','gif'];
+		    let tried = 0;
+		    function tryNext() {
+		      if (tried >= exts.length) return;
+		      const img = new Image();
+		      img.src = 'images/' + slug + '.' + exts[tried++];
+		      img.onload = () => document.getElementById('heroimage').appendChild(img);
+		      img.onerror = tryNext;
+		    }
+		    tryNext();
 		  }
 
 		  // fetch recipe

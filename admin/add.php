@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/image_helper.php';
 
 $errors = [];
 $data   = [];
@@ -37,6 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = (int)$pdo->lastInsertId();
 
     saveRelated($pdo, $id, $data);
+    saveRecipeImage($slug);
 
     header('Location: index.php?added=1');
     exit;
@@ -57,4 +59,5 @@ function saveRelated(PDO $pdo, int $id, array $data): void {
 }
 
 $pageTitle = 'Dodaj recept';
+$recipeSlug = null;
 require '_form.php';

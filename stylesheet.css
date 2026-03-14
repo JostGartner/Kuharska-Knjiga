@@ -172,10 +172,9 @@ a:active, a:hover {
 #topbar #back {
   margin: 0;
 }
-#editLink {
-  /*font-size: 0.8em;*/
+#pdfLink {
 }
-#editLink a, #editLink a:link, #editLink a:visited {
+#pdfLink a, #pdfLink a:link, #pdfLink a:visited {
   color: rgb(180,180,180);
 }
 #title {
@@ -286,11 +285,45 @@ hr {
 
 /* print is not dead */
 @media print {
-  #title {
-    text-align: left !important;
-  }
-  #back, #help {
+  #topbar, #help, #footer, #adminLink {
     display: none;
   }
+  #title {
+    text-align: left !important;
+    border-bottom: 1px solid #999 !important;
+    padding-bottom: 0.5em !important;
+  }
+  #wrapper {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+  body {
+    font-size: 12px;
+  }
+  h1 {
+    font-size: 2em;
+    margin-top: 0.5em;
+  }
+  h2 {
+    font-size: 1em;
+    margin-top: 1em;
+  }
+  #ingredients, #steps {
+    float: left;
+  }
+  #ingredients {
+    width: 33%;
+    padding-right: 2em;
+  }
+  #steps {
+    width: 66%;
+  }
+  a, a:link, a:visited {
+    color: black !important;
+    background: none !important;
+  }
+  .highlight {
+    background: none !important;
+  }
 }
-

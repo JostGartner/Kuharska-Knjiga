@@ -8,7 +8,8 @@
   <link href="../stylesheet.css" rel="stylesheet">
   <link rel="icon" type="image/png" href="../icon.png">
   <style>
-    body   { padding: 2em; max-width: 860px; }
+    body   { padding: 2em; }
+    .form-wrap { max-width: 720px; margin: 0 auto; }
     label  { display:block; font-weight:700; text-transform:uppercase; font-size:0.8em; margin: 1.2em 0 0.3em; }
     input[type=text], textarea {
       width: 100%; font-family: inherit; font-size: 0.9em;
@@ -22,10 +23,14 @@
     .error { background:rgba(255,0,0,0.1); padding:0.5em 1em; margin-bottom:1em; border:1px solid #c00; color:#c00; }
     .row2  { display:grid; grid-template-columns:1fr 1fr; gap:1em; }
     h1     { margin-bottom:0.3em; }
+    .img-preview { margin-top: 0.5em; }
+    .img-preview img { max-width: 100%; max-height: 200px; border: 1px solid #ddd; display: block; }
+    .img-preview .remove-img { font-size: 0.75em; color: #c00; cursor: pointer; margin-top: 0.3em; display: inline-block; }
   </style>
 </head>
 <body>
 
+<div class="form-wrap">
 <h1><?= $pageTitle ?></h1>
 <p><a href="index.php">← Nazaj na seznam</a></p>
 
@@ -35,7 +40,7 @@
   </div>
 <?php endif; ?>
 
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
   <label>Naziv recepta</label>
   <input type="text" name="title" value="<?= htmlspecialchars($data['title'] ?? '') ?>" required>
 
@@ -51,6 +56,31 @@
       <p class="hint">npr. "4 porcije"</p>
     </div>
   </div>
+
+  <label>Slika recepta</label>
+  <?php
+    $existingImg = null;
+    if (isset($recipeSlug) && $recipeSlug) {
+      foreach (['jpg','png','webp','gif'] as $ext) {
+        $candidate = '../images/' . $recipeSlug . '.' . $ext;
+        if (file_exists(__DIR__ . '/' . $candidate)) {
+          $existingImg = $candidate;
+          break;
+        }
+      }
+    }
+    $hasImg = (bool)$existingImg;
+  ?>
+  <?php if ($hasImg): ?>
+    <div class="img-preview">
+      <img src="<?= htmlspecialchars($existingImg) ?>?v=<?= time() ?>" alt="Trenutna slika">
+      <label style="margin-top:0.5em; text-transform:none; font-weight:normal;">
+        <input type="checkbox" name="remove_image" value="1"> Odstrani trenutno sliko
+      </label>
+    </div>
+  <?php endif; ?>
+  <input type="file" name="recipe_image" accept="image/jpeg,image/png,image/webp" style="margin-top:0.4em;">
+  <p class="hint">JPG, PNG ali WEBP. Priporočena širina vsaj 800px. Nova slika zamenja obstoječo.</p>
 
   <label>Sestavine</label>
   <textarea name="ingredients" rows="8"><?= htmlspecialchars($data['ingredients'] ?? '') ?></textarea>
@@ -70,6 +100,7 @@
 
   <button type="submit" class="btn">Shrani recept</button>
 </form>
+</div>
 
 </body>
 </html>
