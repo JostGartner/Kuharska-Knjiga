@@ -13,7 +13,7 @@
 		<div id="wrapper" class="index">
 			<section id="toc">
 				<h1 id="mainTitle">Kuharska Knjiga</h1>
-				<p id="adminLink"><a href="admin/">🛠 Nadzorna Plošča</a></p>
+				<p id="adminLink"><a href="admin/">🍜 Nadzorna Plošča</a></p>
 				<p id="navigation"></p>
 				<ul><!-- recipes inserted by JS --></ul>
 			</section>

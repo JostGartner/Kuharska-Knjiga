@@ -32,9 +32,9 @@ $deleted = isset($_GET['deleted']) ? (int)$_GET['deleted'] : 0;
 
 <div class="header-row">
   <h1>Nadzorna Plošča</h1>
-  <a class="btn" href="add.php">+ Dodaj Recept</a>
+  <a class="btn" href="add.php">✚ Dodaj Recept</a>
 </div>
-<p><a href="../index.php">← Domov</a></p>
+<p><a href="../index.php">🡸 Domov</a></p>
 
 <?php if ($deleted): ?>
   <p class="notice">Recept je bil izbrisan.</p>
@@ -64,7 +64,7 @@ $deleted = isset($_GET['deleted']) ? (int)$_GET['deleted'] : 0;
 </table>
 
 <?php if (empty($recipes)): ?>
-  <p style="margin-top:1em;color:#999">Ni receptov. <a href="add.php">Dodaj prvega →</a></p>
+  <p style="margin-top:1em;color:#999">Ni receptov. <a href="add.php">Dodaj svoj prvi recept!</a></p>
 <?php endif; ?>
 
 </body>

@@ -11,8 +11,8 @@
 		<script>
 			// ── options ──────────────────────────────────────────────────
 			let helpUrls = [
-			  { label: 'Slikovno iskanje',url: 'https://www.google.com/search?q=<name>&tbm=isch' },
-			  { label: 'Več receptov',   url: 'https://www.google.com/search?q=<name>+recipe' }
+			  { label: 'Več slik',url: 'https://www.google.com/search?q=<name>&tbm=isch' },
+			  { label: 'Pogooglaj recept',   url: 'https://www.google.com/search?q=<name>+recept' }
 			];
 			let lookForHeroImage = true;
 			let shortenURLs      = false;

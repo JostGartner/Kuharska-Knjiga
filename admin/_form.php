@@ -32,7 +32,7 @@
 
 <div class="form-wrap">
 <h1><?= $pageTitle ?></h1>
-<p><a href="index.php">← Nazaj na seznam</a></p>
+<p><a href="index.php">🡸 Nazaj na seznam</a></p>
 
 <?php if (!empty($errors)): ?>
   <div class="error">
@@ -98,7 +98,7 @@
   <textarea name="based_on" rows="3"><?= htmlspecialchars($data['based_on'] ?? '') ?></textarea>
   <p class="hint">En URL na vrstico.</p>
 
-  <button type="submit" class="btn">Shrani recept</button>
+  <button type="submit" class="btn">Shrani</button>
 </form>
 </div>
 
