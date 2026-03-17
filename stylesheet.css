@@ -115,7 +115,7 @@ ol li {
   color:        rgb(180,180,180);
 }
 :target {
-  background-color: rgba(120,200,255, 0.45);
+  background-color: rgba(186, 246, 255, 1);
 }
 
 /* links and letter list highlight */
@@ -126,7 +126,7 @@ a, a:link, a:visited {
 }
 a:active, a:hover {
   color:            black !important;
-  background-color: rgba(120,200,255, 0.45);
+  background-color: rgba(186, 246, 255, 1);
 }
 
 /* notes links should have an underline */
@@ -228,7 +228,7 @@ svg.linkIcon, #footer svg {
   margin: 0 0 -0.08em 0.1em;
 }
 .highlight {
-  background-color: rgba(120,200,255, 0.45);
+  background-color: rgba(186, 246, 255, 1);
 }
 hr {
   clear:      both;
@@ -326,4 +326,95 @@ hr {
   .highlight {
     background: none !important;
   }
+}
+/* ── dark mode ───────────────────────────────────────────────────── */
+/* class is set on <html> so it applies before body renders */
+html.dark,
+html.dark body {
+  background-color: #202225 !important;
+  color: #e0e0e0 !important;
+}
+html.dark a,
+html.dark a:link,
+html.dark a:visited {
+  color: #e0e0e0 !important;
+}
+html.dark a:active,
+html.dark a:hover {
+  color: #ffffff !important;
+  background-color: rgba(186, 246, 255, 0.5) !important;
+}
+html.dark #back a:hover {
+  background: none !important;
+}
+html.dark #heroimage img {
+  border-color: #555;
+}
+html.dark hr {
+  border-top-color: #555;
+}
+html.dark #title {
+  border-bottom-color: #555;
+}
+html.dark .paren {
+  color: #aaa !important;
+}
+html.dark #navigation a,
+html.dark #navigation a:link,
+html.dark #navigation a:visited {
+  color: #888;
+}
+html.dark #footer,
+html.dark #footer a,
+html.dark #footer a:link,
+html.dark #footer a:visited {
+  color: #777;
+}
+html.dark #adminLink a,
+html.dark #adminLink a:link,
+html.dark #adminLink a:visited,
+html.dark #darkToggleWrap a,
+html.dark #darkToggleWrap a:link,
+html.dark #darkToggleWrap a:visited,
+html.dark #pdfLink a,
+html.dark #pdfLink a:link,
+html.dark #pdfLink a:visited {
+  color: #888;
+}
+html.dark #back svg {
+  color: #888;
+}
+html.dark #back svg:hover {
+  color: #e0e0e0;
+}
+html.dark :target {
+  background-color: rgba(100,180,255, 0.15);
+}
+html.dark .highlight {
+  background-color: rgba(100,180,255, 0.2);
+}
+
+/* ── dark toggle & toprow ────────────────────────────────────────── */
+/* toggle behaves exactly like #adminLink - gray idle, full color on hover */
+#darkToggleWrap a,
+#darkToggleWrap a:link,
+#darkToggleWrap a:visited {
+  color: rgb(180,180,180);
+}
+html.dark #darkToggleWrap a,
+html.dark #darkToggleWrap a:link,
+html.dark #darkToggleWrap a:visited {
+  color: #888;
+}
+
+#toprow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5em;
+  margin: 0.4em 0 0 0;
+}
+#toprow #adminLink,
+#toprow #darkToggleWrap {
+  margin: 0;
 }

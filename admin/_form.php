@@ -19,7 +19,7 @@
     .hint  { font-size: 0.75em; color: #888; margin-top: 0.2em; }
     .btn   { display:inline-block; margin-top:1.5em; padding:0.5em 1.2em; font-family:inherit;
              font-size:1em; cursor:pointer; border:1px solid #333; background:#fff; }
-    .btn:hover { background: rgba(120,200,255, 0.45); }
+    .btn:hover { background: rgba(186, 246, 255, 1); }
     .error { background:rgba(255,0,0,0.1); padding:0.5em 1em; margin-bottom:1em; border:1px solid #c00; color:#c00; }
     .row2  { display:grid; grid-template-columns:1fr 1fr; gap:1em; }
     h1     { margin-bottom:0.3em; }

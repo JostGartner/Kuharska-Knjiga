@@ -7,12 +7,16 @@
 		<link rel="icon" type="image/png" href="icon.png">
 		<link href='https://fonts.googleapis.com/css?family=JetBrains+Mono' rel='stylesheet'>
 		<link href="stylesheet.css" rel="stylesheet" type="text/css">
+		<!-- dark mode: set on <html> immediately, before body renders -->
+		<script>if (localStorage.getItem('darkMode') === '1') document.documentElement.classList.add('dark');</script>
 
 		<script>
 			// ── options ──────────────────────────────────────────────────
 			let helpUrls = [
-			  { label: 'Več slik',url: 'https://www.google.com/search?q=<name>&tbm=isch' },
-			  { label: 'Pogooglaj recept',   url: 'https://www.google.com/search?q=<name>+recept' }
+			  { label: 'Slikovno iskanje',    url: 'https://www.google.com/search?q=<name>&tbm=isch' },
+			  { label: 'Poišči več receptov', url: 'https://www.google.com/search?q=<name>+recept' },
+			  { label: 'Okusno.je',           url: 'https://okusno.je/iskanje?q=<name>' },
+			  { label: 'Hranilne vrednosti',  url: 'https://www.google.com/search?q=<name>+kalorije+hranilne+vrednosti' }
 			];
 			let lookForHeroImage = true;
 			let shortenURLs      = false;
@@ -47,6 +51,9 @@
 	</body>
 
 	<script>
+		// ── dark mode ────────────────────────────────────────────────
+		(function() { if (localStorage.getItem('darkMode') === '1') document.documentElement.classList.add('dark'); })();
+
 		// ── utils ────────────────────────────────────────────────────
 		function linkify(str) {
 		  const httpPattern = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;

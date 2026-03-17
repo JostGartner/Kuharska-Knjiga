@@ -7,13 +7,20 @@
 		<link rel="icon" type="image/png" href="icon.png">
 		<link href='https://fonts.googleapis.com/css?family=JetBrains+Mono' rel='stylesheet'>
 		<link href="stylesheet.css" rel="stylesheet" type="text/css">
+		<!-- dark mode: set on <html> immediately, before body renders -->
+		<script>if (localStorage.getItem('darkMode') === '1') document.documentElement.classList.add('dark');</script>
 	</head>
 
 	<body>
 		<div id="wrapper" class="index">
 			<section id="toc">
 				<h1 id="mainTitle">Kuharska Knjiga</h1>
-				<p id="adminLink"><a href="admin/">🍜 Nadzorna Plošča</a></p>
+
+				<div id="toprow">
+					<p id="adminLink"><a href="admin/">🍜 Administrator</a></p>
+					<p id="darkToggleWrap"><a href="#" id="darkToggle" onclick="toggleDark(); return false;">☾ Dark</a></p>
+				</div>
+
 				<p id="navigation"></p>
 				<ul><!-- recipes inserted by JS --></ul>
 			</section>
@@ -27,6 +34,18 @@
 	</body>
 
 	<script>
+		// ── dark mode ────────────────────────────────────────────────
+		function applyDark(on) {
+		  document.documentElement.classList.toggle('dark', on);
+		  document.getElementById('darkToggle').textContent = on ? '☀️ Light/Dark' : '🌑 Light/Dark';
+		}
+		function toggleDark() {
+		  const next = !document.documentElement.classList.contains('dark');
+		  localStorage.setItem('darkMode', next ? '1' : '0');
+		  applyDark(next);
+		}
+		applyDark(localStorage.getItem('darkMode') === '1');
+
 		// ── utils ────────────────────────────────────────────────────
 		function linkify(str) {
 		  const httpPattern = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;

@@ -20,10 +20,10 @@ $deleted = isset($_GET['deleted']) ? (int)$_GET['deleted'] : 0;
     th, td { text-align: left; padding: 0.5em 0.8em; border-bottom: 1px solid #ddd; }
     th { font-weight: 700; text-transform: uppercase; }
     .btn { display:inline-block; padding:0.3em 0.7em; font-family:inherit; font-size:0.85em; cursor:pointer; border:1px solid #333; background:#fff; text-decoration:none; color:#333; }
-    .btn:hover { background: rgba(120,200,255, 0.45); }
+    .btn:hover { background: rgba(186, 246, 255, 1); }
     .btn-danger { border-color: #c00; color: #c00; }
     .btn-danger:hover { background: rgba(255,0,0,0.1); }
-    .notice { background: rgba(255,255,0,0.4); padding: 0.5em 1em; margin-bottom: 1em; }
+    .notice { background: rgba(186, 246, 255, 1); padding: 0.5em 1em; margin-bottom: 1em; }
     h1 { margin-bottom: 0.3em; }
     .header-row { display:flex; justify-content:space-between; align-items:center; }
   </style>
