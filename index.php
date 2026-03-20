@@ -27,7 +27,7 @@
 
 			<section id="footer">
 				<ul>
-					<li>Dober tek ❤︎ <a href="https://github.com/JostGartner" target="_blank">Jošt Gartner</a></li>
+					<li>Dober tek 🩷 <a href="https://github.com/JostGartner" target="_blank">Jošt Gartner</a></li>
 				</ul>
 			</section>
 		</div>
@@ -37,7 +37,7 @@
 		// ── dark mode ────────────────────────────────────────────────
 		function applyDark(on) {
 		  document.documentElement.classList.toggle('dark', on);
-		  document.getElementById('darkToggle').textContent = on ? '☀️ Light/Dark' : '🌑 Light/Dark';
+		  document.getElementById('darkToggle').textContent = on ? '☀️ Tema' : '🌑 Tema';
 		}
 		function toggleDark() {
 		  const next = !document.documentElement.classList.contains('dark');

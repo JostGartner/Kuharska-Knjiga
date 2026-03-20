@@ -195,9 +195,6 @@ a:active, a:hover {
   color: rgb(180,180,180);
 }
 
-#back a:hover {
-  background: none;
-}
 #back svg {
   display: none;
   width:   24px;
@@ -260,7 +257,8 @@ hr {
   #back {
     margin-bottom: 1.3em;
   }
-  #back svg {
+  #back a {
+    font-size: 1.5em;
     display: block;
   }
   #title {
@@ -298,6 +296,22 @@ hr {
     max-width: 100%;
     margin: 0;
   }
+ 
+  /* force light mode for print regardless of dark mode setting */
+  html, html.dark, body, html.dark body {
+    background-color: white !important;
+    color: black !important;
+  }
+  html.dark a, html.dark a:link, html.dark a:visited {
+    color: black !important;
+  }
+  html.dark .paren {
+    color: rgb(130,130,130) !important;
+  }
+  html.dark hr {
+    border-top-color: #999 !important;
+  }
+ 
   body {
     font-size: 12px;
   }
@@ -319,6 +333,21 @@ hr {
   #steps {
     width: 66%;
   }
+ 
+  /* fix bullet points: use simple disc/decimal, not square which renders oddly */
+  #notes ul, #help ul, #basedon ul {
+    list-style: disc outside;
+  }
+  #notes ul li, #help ul li, #basedon ul li {
+    margin-left: 1.2em;
+  }
+  ol {
+    list-style: decimal outside;
+  }
+  ol li {
+    margin-left: 1.2em;
+  }
+ 
   a, a:link, a:visited {
     color: black !important;
     background: none !important;
@@ -344,9 +373,7 @@ html.dark a:hover {
   color: #ffffff !important;
   background-color: rgba(186, 246, 255, 0.5) !important;
 }
-html.dark #back a:hover {
-  background: none !important;
-}
+
 html.dark #heroimage img {
   border-color: #555;
 }

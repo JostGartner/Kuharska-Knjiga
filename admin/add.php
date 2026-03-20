@@ -26,10 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // make slug unique
     $base = $slug; $i = 2;
-    while ($pdo->prepare('SELECT id FROM recipes WHERE slug=?')->execute([$slug]) &&
-           $pdo->prepare('SELECT id FROM recipes WHERE slug=?')->execute([$slug]) &&
-           $pdo->query("SELECT id FROM recipes WHERE slug='$slug'")->fetch()) {
+    $check = $pdo->prepare('SELECT id FROM recipes WHERE slug = ?');
+    $check->execute([$slug]);
+    while ($check->fetch()) {
       $slug = $base . '-' . $i++;
+      $check->execute([$slug]);
     }
 
     $pdo->prepare(

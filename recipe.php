@@ -13,8 +13,8 @@
 		<script>
 			// ── options ──────────────────────────────────────────────────
 			let helpUrls = [
+			  { label: 'Google.com', url: 'https://www.google.com/search?q=<name>+recept' },
 			  { label: 'Slikovno iskanje',    url: 'https://www.google.com/search?q=<name>&tbm=isch' },
-			  { label: 'Poišči več receptov', url: 'https://www.google.com/search?q=<name>+recept' },
 			  { label: 'Okusno.je',           url: 'https://okusno.je/iskanje?q=<name>' },
 			  { label: 'Hranilne vrednosti',  url: 'https://www.google.com/search?q=<name>+kalorije+hranilne+vrednosti' }
 			];
@@ -29,13 +29,9 @@
 			<!-- back button + edit button -->
 			<div id="topbar">
 				<p id="back">
-					<a href="index.php">
-						<svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-							<path fill="currentColor" d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"></path>
-						</svg>
-					</a>
+				    <a href="index.php">🡸</a>
 				</p>
-				<p id="pdfLink"><a href="#" onclick="window.print(); return false;">🡻 Prenos PDF</a></p>
+				<p id="pdfLink"><a href="#" onclick="printRecipe(); return false;">🡻 Prenos PDF</a></p>
 			</div>
 
 			<section id="heroimage"></section>
@@ -51,8 +47,13 @@
 	</body>
 
 	<script>
-		// ── dark mode ────────────────────────────────────────────────
-		(function() { if (localStorage.getItem('darkMode') === '1') document.documentElement.classList.add('dark'); })();
+		// ── print: temporarily remove dark class so PDF is always light ──
+		function printRecipe() {
+		  const wasDark = document.documentElement.classList.contains('dark');
+		  if (wasDark) document.documentElement.classList.remove('dark');
+		  window.print();
+		  if (wasDark) document.documentElement.classList.add('dark');
+		}
 
 		// ── utils ────────────────────────────────────────────────────
 		function linkify(str) {
